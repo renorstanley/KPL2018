@@ -136,6 +136,7 @@
             // 
             // elips_button
             // 
+            this.elips_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("elips_button.BackgroundImage")));
             this.elips_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.elips_button.Location = new System.Drawing.Point(86, 36);
             this.elips_button.Name = "elips_button";
@@ -145,6 +146,7 @@
             // 
             // rect_button
             // 
+            this.rect_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rect_button.BackgroundImage")));
             this.rect_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.rect_button.Location = new System.Drawing.Point(48, 36);
             this.rect_button.Name = "rect_button";
@@ -154,6 +156,7 @@
             // 
             // line_button
             // 
+            this.line_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("line_button.BackgroundImage")));
             this.line_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.line_button.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.line_button.Location = new System.Drawing.Point(12, 36);
