@@ -9,19 +9,25 @@ namespace SimplePaint
 {
     class circle: Shape
     {
-        int initialX, initialY;
-        public circle(int x, int y)
+        int fromX, fromY, toX, toY;
+        Graphics graph;
+        Pen p;
+        public circle(int initialX, int initialY, Pen p, int x, int y, Graphics objGraphic)
         {
-            this.initialX = x;
-            this.initialY = y;
+            this.fromX = initialX;
+            this.fromY = initialY;
+            this.p = p;
+            this.toX = x;
+            this.toY = y;
+            this.graph = objGraphic;
         }
-        public override void draw(Pen p, int x, int y, Graphics objGraphic)
+        public override void draw()
         {
-            Rectangle rect = new Rectangle(Math.Min(x, initialX),
-                   Math.Min(y, this.initialY),
-                   Math.Abs(x - this.initialX),
-                   Math.Abs(y - initialY));
-            objGraphic.DrawEllipse(p, rect);
+            Rectangle rect = new Rectangle(Math.Min(toX, fromX),
+                  Math.Min(toY, fromY),
+                  Math.Abs(toX - fromX),
+                  Math.Abs(toY - fromY));
+            graph.DrawEllipse(p, rect);
           }
     }
 }

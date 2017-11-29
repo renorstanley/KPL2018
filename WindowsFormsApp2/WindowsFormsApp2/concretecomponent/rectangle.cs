@@ -8,20 +8,27 @@ namespace SimplePaint
 {
     class rectangle : Shape
     {
-        int initialX, initialY;
-        public rectangle(int x, int y)
+        int fromX,fromY, toX, toY;
+        Graphics graph;
+        Pen p;
+        public rectangle(int initialX, int initialY, Pen p, int x, int y, Graphics objGraphic)
         {
-            this.initialX = x;
-            this.initialY = y;
+            this.fromX = initialX ;
+            this.fromY = initialY;
+            this.p = p;
+            this.toX = x;
+            this.toY = y;
+            this.graph = objGraphic;
         }
         // Override Area method 
-        public override void draw(Pen p, int x, int y, Graphics objGraphic)
+        public override void draw()
         {
-            Rectangle rect = new Rectangle(Math.Min(x, initialX),
-                   Math.Min(y, this.initialY),
-                   Math.Abs(x - this.initialX),
-                   Math.Abs(y - initialY));
-            objGraphic.DrawRectangle(p, rect);
+            Rectangle rect = new Rectangle(Math.Min(toX, fromX),
+                   Math.Min(toY, fromY),
+                   Math.Abs(toX - fromX),
+                   Math.Abs(toY - fromY));
+            graph.DrawRectangle(p, rect);
+
          }
     }
 }

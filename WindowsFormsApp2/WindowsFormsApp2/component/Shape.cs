@@ -8,7 +8,7 @@ namespace SimplePaint
 {
     public abstract class Shape
     {
-        public abstract void draw(Pen p, int x, int y, Graphics objGraphic);
+        public abstract void draw();
         // public abstract double x();
         // public abstract double y();
         // public abstract double getarea();

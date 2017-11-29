@@ -100,12 +100,12 @@ namespace SimplePaint
 
                 else if (rectang == true)
                 {
-                    r = new rectangle(e.X, e.Y);
+                    initialX = e.X; initialY = e.Y;
                 }
 
                 else if (circle == true)
                 {
-                    cir = new circle(e.X, e.Y);
+                 //   cir = new circle(e.X, e.Y);
                 }
                 /*else if (trangle == true)
                 {
@@ -130,7 +130,8 @@ namespace SimplePaint
                     p.Width = tebal;
                     //                 width = e.X - initialX;
                     //                  height = e.Y - initialY;
-                    r.draw(p, e.X, e.Y, objGraphic);
+                    rectangle r = new rectangle(initialX, initialY, p, e.X, e.Y, objGraphic);
+                    r.draw();
                     //rumusrectang(); 
                 }
                 else if (circle == true)
@@ -139,7 +140,7 @@ namespace SimplePaint
                     //cirW = Math.Abs(e.X - initialX);
                     //cirL = Math.Abs(e.Y - initialY);
 
-                    cir.draw(p, e.X, e.Y, objGraphic);
+                    //cir.draw(p, e.X, e.Y, objGraphic);
                 }    
                     shouldPaint = false;
                 
