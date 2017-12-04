@@ -13,23 +13,15 @@ namespace SimplePaint
 {
     public partial class Display : Form
     {
-        int tebal = 1, initialX, initialY;
+        int tebal = 10, initialX, initialY;
 
         Color wrn, wrn1;
         Pen p;
-        private bool triangle_step = false;
         private Graphics objGraphic;
-        private bool shouldPaint = false, warna = false;
+        private bool shouldPaint = false;
         Boolean line, rectang, circle, trangle;
-        double px, py, vector, angle;
+        double px, py, vector;
         rectangle r;
-        circle cir;
-        //line
-        private Point preCoor, newCoor;
-        //rectangle
-        int width, height;
-        //circle
-        int cirW, cirL;
         //triangle
         private List<Point> points = new List<Point>();
         Point[] list = new Point[3];
@@ -38,14 +30,12 @@ namespace SimplePaint
             line_button.BackColor = Color.Snow; rect_button.BackColor = Color.Snow;
             elips_button.BackColor = Color.Snow; triangle.BackColor = Color.Snow;
         }
-
         Point a, b, c;
-
-
         public Display()
         {
             InitializeComponent();
             p = new Pen(Color.Black);
+         
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -57,8 +47,7 @@ namespace SimplePaint
             vector = Math.Sqrt((Math.Pow(px, 2)) + (Math.Pow(py, 2)));
             angle = Math.Atan(py / px) * 180 / Math.PI; //display();
         }*/
-
-        void rumusrectang()
+        /*void rumusrectang()
         {
             px = width; py = height;
             vector = px * py;
@@ -75,7 +64,7 @@ namespace SimplePaint
             { angle = 360; }
             //display();
         }
-        /*void rumustriangle()
+        void rumustriangle()
         {
             px = b.X - a.X; py = c.Y;
             vector = 0.5 * px * py;
@@ -88,25 +77,13 @@ namespace SimplePaint
             line = false; rectang = false;
             circle = false; trangle = false;
         }
+        //membuat point 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 shouldPaint = true;
-                if (line == true)
-                {
-                    preCoor = e.Location; newCoor = preCoor;
-                }
-
-                else if (rectang == true)
-                {
-                    initialX = e.X; initialY = e.Y;
-                }
-
-                else if (circle == true)
-                {
-                 //   cir = new circle(e.X, e.Y);
-                }
+                initialX = e.X;initialY = e.Y;
                 /*else if (trangle == true)
                 {
                     if (triangle_step == false)
@@ -116,43 +93,47 @@ namespace SimplePaint
         }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
+
             if (shouldPaint == true)
             {
                 if (line == true)
                 {
-                    newCoor = new Point(e.X, e.Y);
-                    objGraphic.DrawLine(p, preCoor, newCoor);
+                    line l = new line(initialX, initialY, p, e.X, e.Y, objGraphic,3);
+                    borderColorDecorator f = new borderColorDecorator(l, Color.Pink);
+                    f.draw();
                     //rumusline(); 
-                    shouldPaint = false;
                 }
                 else if (rectang == true)
                 {
-                    p.Width = tebal;
                     //                 width = e.X - initialX;
                     //                  height = e.Y - initialY;
-                    rectangle r = new rectangle(initialX, initialY, p, e.X, e.Y, objGraphic);
-                    r.draw();
+                    rectangle r = new rectangle(initialX, initialY, p, e.X, e.Y, objGraphic,3);
+                    //decorator b = new decorator(r);
+                    fillColorDecorator b = new fillColorDecorator(r, Color.Aqua);
+                    borderColorDecorator f = new borderColorDecorator(r, Color.Pink);
+                    b.draw();
+                    f.draw();
                     //rumusrectang(); 
                 }
                 else if (circle == true)
                 {
-                    p.Width = tebal;
+                    circle r = new circle(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
                     //cirW = Math.Abs(e.X - initialX);
                     //cirL = Math.Abs(e.Y - initialY);
-
+                    fillColorDecorator b = new fillColorDecorator(r, Color.Aqua);
+                    borderColorDecorator f = new borderColorDecorator(r, Color.Pink);
+                    b.draw();
+                    f.draw();
                     //cir.draw(p, e.X, e.Y, objGraphic);
                 }    
                     shouldPaint = false;
-                
                     /*else if (trangle == true)
                         {
                             if (triangle_step == false)
                             {
                                 newCoor = new Point(e.X, e.Y);
-
                                 objGraphic.DrawLine(p, preCoor, newCoor);
                                 rumusline();
-
                                 triangle_step = true;
                             }
                             if(triangle_step == true)
@@ -160,16 +141,11 @@ namespace SimplePaint
                                 Point newCoorgain = new Point (e.X, e.Y);
                                 objGraphic.DrawLine(p, preCoor, newCoorgain);
                                 objGraphic.DrawLine(p, preCoor, newCoor);
-
                             }
                             shouldPaint = false;
-
                             objGraphic.DrawPolygon(p, list);
-
                             rumustriangle(); shouldPaint = false;
                         }*/
-                
-
             }
         }
         private void rect_button_Click(object sender, EventArgs e)
@@ -202,12 +178,9 @@ namespace SimplePaint
         }
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
-
         private void label4_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
