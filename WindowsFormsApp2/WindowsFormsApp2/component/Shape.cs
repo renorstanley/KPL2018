@@ -9,8 +9,12 @@ namespace SimplePaint
     public abstract class Shape
     {
         public abstract void draw();
-        // public abstract double x();
-        // public abstract double y();
-        // public abstract double getarea();
+        public abstract int getFromX();
+        public abstract int getFromY();
+        public abstract int getToX();
+        public abstract int getToY();
+        public abstract int getThickness();
+        public abstract string shapetype();
+        public abstract Graphics GetGraph();
     }
 }
