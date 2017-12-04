@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 namespace SimplePaint
+
 {
-    class rectangle : Shape
+    class line: Shape
     {
         int thickness;
-        int fromX,fromY, toX, toY;
+        int fromX, fromY, toX, toY;
         Graphics graph;
         Pen p;
-        public rectangle(int initialX, int initialY, Pen p, int x, int y, Graphics objGraphic, int tebal)
+        public line(int initialX, int initialY, Pen p, int x, int y, Graphics objGraphic, int tebal)
         {
-            this.fromX = initialX ;
+            this.fromX = initialX;
             this.fromY = initialY;
             this.p = p;
             this.toX = x;
@@ -25,10 +26,6 @@ namespace SimplePaint
         public override int getThickness()
         {
             return this.thickness;
-        }
-        public override Graphics GetGraph()
-        {
-            return this.graph;
         }
         public override int getFromX()
         {
@@ -48,19 +45,18 @@ namespace SimplePaint
         }
         public override string shapetype()
         {
-            return "rectangle";
+            return "line";
         }
-
-        // Override Area method 
+        public override Graphics GetGraph()
+        {
+            return this.graph;
+        }
         public override void draw()
         {
-  
-            Rectangle rect = new Rectangle(Math.Min(toX, fromX),
-                   Math.Min(toY, fromY),
-                   Math.Abs(toX - fromX),
-                   Math.Abs(toY - fromY));
-            graph.DrawRectangle(p, rect);
-   
-         }
+             Point from = new Point(fromX, fromY);
+            Point to = new Point(toX, toY);
+            graph.DrawLine(p, from, to);
+    
+          }
     }
 }
