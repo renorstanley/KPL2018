@@ -13,12 +13,13 @@ namespace SimplePaint
 {
     public partial class Display : Form
     {
-        int tebal = 10, initialX, initialY;
+        int tebal = 10,initialX, initialY;
 
         Color wrn, wrn1;
         Pen p;
         private Graphics objGraphic;
         private bool shouldPaint = false;
+        Point prevPoint;
         Boolean line, rectang, circle, trangle;
         double px, py, vector;
         rectangle r;
@@ -31,12 +32,14 @@ namespace SimplePaint
             elips_button.BackColor = Color.Snow; triangle.BackColor = Color.Snow;
         }
         Point a, b, c;
+        
         public Display()
         {
             InitializeComponent();
             p = new Pen(Color.Black);
          
         }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             objGraphic = panel1.CreateGraphics();
@@ -98,7 +101,7 @@ namespace SimplePaint
             {
                 if (line == true)
                 {
-                    line l = new line(initialX, initialY, p, e.X, e.Y, objGraphic,3);
+                    line l = new line(p,prevPoint,e.Location);
                     borderColorDecorator f = new borderColorDecorator(l, Color.Pink);
                     f.draw();
                     //rumusline(); 
