@@ -45,15 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decor\borderColorDecorator.cs" />
     <Compile Include="component\Shape.cs" />
     <Compile Include="concretecomponent\circle.cs" />
     <Compile Include="concretecomponent\rectangle.cs" />
+    <Compile Include="Decor\decorator.cs" />
     <Compile Include="Display.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Display.Designer.cs">
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
+    <Compile Include="Decor\fillColorDecorator.cs" />
+    <Compile Include="line.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Display.resx">

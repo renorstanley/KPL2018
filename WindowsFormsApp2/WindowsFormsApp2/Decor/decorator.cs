@@ -54,6 +54,8 @@ namespace SimplePaint
             p.Width = this.m_BaseComponent.getThickness();
             Point from = new Point(this.m_BaseComponent.getFromX(), this.m_BaseComponent.getFromY());
             Point to = new Point(this.m_BaseComponent.getToX(), this.m_BaseComponent.getToY());
+            Point prev;
+            Point cur;
             Rectangle rect = new Rectangle(Math.Min(this.m_BaseComponent.getToX(), this.m_BaseComponent.getFromX()),
                       Math.Min(this.m_BaseComponent.getToY(), this.m_BaseComponent.getFromY()),
                       Math.Abs(this.m_BaseComponent.getToX() - this.m_BaseComponent.getFromX()),
@@ -80,7 +82,10 @@ namespace SimplePaint
                 else
                     g.FillRectangle(bru, rect);
             }
-            else g.DrawLine(p, from, to);
+            else if (this.m_BaseComponent.shapetype() == "Line")
+            {
+                g.DrawLine(p, from, to);
+            }
 
         }
     }
