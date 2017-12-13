@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="component\Shape.cs" />
     <Compile Include="concretecomponent\circle.cs" />
+    <Compile Include="concretecomponent\line.cs" />
     <Compile Include="concretecomponent\rectangle.cs" />
     <Compile Include="Display.cs">
       <SubType>Form</SubType>

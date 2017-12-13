@@ -99,8 +99,7 @@ namespace SimplePaint
                 if (line == true)
                 {
                     line l = new line(initialX, initialY, p, e.X, e.Y, objGraphic,3);
-                    borderColorDecorator f = new borderColorDecorator(l, Color.Pink);
-                    f.draw();
+                    l.draw();
                     //rumusline(); 
                 }
                 else if (rectang == true)
@@ -108,11 +107,8 @@ namespace SimplePaint
                     //                 width = e.X - initialX;
                     //                  height = e.Y - initialY;
                     rectangle r = new rectangle(initialX, initialY, p, e.X, e.Y, objGraphic,3);
+                    r.draw();
                     //decorator b = new decorator(r);
-                    fillColorDecorator b = new fillColorDecorator(r, Color.Aqua);
-                    borderColorDecorator f = new borderColorDecorator(r, Color.Pink);
-                    b.draw();
-                    f.draw();
                     //rumusrectang(); 
                 }
                 else if (circle == true)
@@ -120,11 +116,8 @@ namespace SimplePaint
                     circle r = new circle(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
                     //cirW = Math.Abs(e.X - initialX);
                     //cirL = Math.Abs(e.Y - initialY);
-                    fillColorDecorator b = new fillColorDecorator(r, Color.Aqua);
-                    borderColorDecorator f = new borderColorDecorator(r, Color.Pink);
-                    b.draw();
-                    f.draw();
-                    //cir.draw(p, e.X, e.Y, objGraphic);
+                    r.draw();   
+                //cir.draw(p, e.X, e.Y, objGraphic);
                 }    
                     shouldPaint = false;
                     /*else if (trangle == true)
