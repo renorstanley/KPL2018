@@ -52,11 +52,11 @@
             this.erase_button = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.y_indicator = new System.Windows.Forms.TextBox();
-            this.x_indicator = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.A_Indicator = new System.Windows.Forms.TextBox();
+            this.changinglabel = new System.Windows.Forms.Label();
+            this.H_Indicator = new System.Windows.Forms.TextBox();
+            this.W_Indicator = new System.Windows.Forms.TextBox();
+            this.H_decorator = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
@@ -136,7 +136,7 @@
             this.triangle.Size = new System.Drawing.Size(32, 30);
             this.triangle.TabIndex = 5;
             this.triangle.UseVisualStyleBackColor = true;
-            this.triangle.Click += new System.EventHandler(this.triangle_Click);
+            this.triangle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.trianglebutton_click);
             // 
             // elips_button
             // 
@@ -296,11 +296,11 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.textBox6);
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Controls.Add(this.y_indicator);
-            this.panel6.Controls.Add(this.x_indicator);
-            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.A_Indicator);
+            this.panel6.Controls.Add(this.changinglabel);
+            this.panel6.Controls.Add(this.H_Indicator);
+            this.panel6.Controls.Add(this.W_Indicator);
+            this.panel6.Controls.Add(this.H_decorator);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.textBox5);
             this.panel6.Location = new System.Drawing.Point(3, 369);
@@ -308,55 +308,55 @@
             this.panel6.Size = new System.Drawing.Size(158, 121);
             this.panel6.TabIndex = 4;
             // 
-            // textBox6
+            // A_Indicator
             // 
-            this.textBox6.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
-            this.textBox6.Location = new System.Drawing.Point(37, 89);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(121, 26);
-            this.textBox6.TabIndex = 8;
-            this.textBox6.Text = "Coordinates";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.A_Indicator.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.A_Indicator.Location = new System.Drawing.Point(37, 89);
+            this.A_Indicator.Name = "A_Indicator";
+            this.A_Indicator.Size = new System.Drawing.Size(121, 26);
+            this.A_Indicator.TabIndex = 8;
+            this.A_Indicator.Text = "Coordinates";
+            this.A_Indicator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label5
+            // changinglabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(11, 89);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 19);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "A";
+            this.changinglabel.AutoSize = true;
+            this.changinglabel.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.changinglabel.Location = new System.Drawing.Point(11, 89);
+            this.changinglabel.Name = "changinglabel";
+            this.changinglabel.Size = new System.Drawing.Size(19, 19);
+            this.changinglabel.TabIndex = 7;
+            this.changinglabel.Text = "A";
             // 
-            // y_indicator
+            // H_Indicator
             // 
-            this.y_indicator.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
-            this.y_indicator.Location = new System.Drawing.Point(37, 61);
-            this.y_indicator.Name = "y_indicator";
-            this.y_indicator.Size = new System.Drawing.Size(121, 26);
-            this.y_indicator.TabIndex = 6;
-            this.y_indicator.Text = "Coordinates";
-            this.y_indicator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.H_Indicator.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.H_Indicator.Location = new System.Drawing.Point(37, 61);
+            this.H_Indicator.Name = "H_Indicator";
+            this.H_Indicator.Size = new System.Drawing.Size(121, 26);
+            this.H_Indicator.TabIndex = 6;
+            this.H_Indicator.Text = "Coordinates";
+            this.H_Indicator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // x_indicator
+            // W_Indicator
             // 
-            this.x_indicator.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
-            this.x_indicator.Location = new System.Drawing.Point(37, 36);
-            this.x_indicator.Name = "x_indicator";
-            this.x_indicator.Size = new System.Drawing.Size(121, 26);
-            this.x_indicator.TabIndex = 5;
-            this.x_indicator.Text = "Coordinates";
-            this.x_indicator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.W_Indicator.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.W_Indicator.Location = new System.Drawing.Point(37, 36);
+            this.W_Indicator.Name = "W_Indicator";
+            this.W_Indicator.Size = new System.Drawing.Size(121, 26);
+            this.W_Indicator.TabIndex = 5;
+            this.W_Indicator.Text = "Coordinates";
+            this.W_Indicator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label3
+            // H_decorator
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(12, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Y";
+            this.H_decorator.AutoSize = true;
+            this.H_decorator.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.H_decorator.Location = new System.Drawing.Point(12, 61);
+            this.H_decorator.Name = "H_decorator";
+            this.H_decorator.Size = new System.Drawing.Size(20, 19);
+            this.H_decorator.TabIndex = 4;
+            this.H_decorator.Text = "H";
             // 
             // label4
             // 
@@ -364,9 +364,9 @@
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(12, 37);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 19);
+            this.label4.Size = new System.Drawing.Size(24, 19);
             this.label4.TabIndex = 1;
-            this.label4.Text = "X";
+            this.label4.Text = "W";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox5
@@ -430,12 +430,12 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox y_indicator;
-        private System.Windows.Forms.TextBox x_indicator;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox H_Indicator;
+        private System.Windows.Forms.TextBox W_Indicator;
+        private System.Windows.Forms.Label H_decorator;
         private System.Windows.Forms.Button triangle;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox A_Indicator;
+        private System.Windows.Forms.Label changinglabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
