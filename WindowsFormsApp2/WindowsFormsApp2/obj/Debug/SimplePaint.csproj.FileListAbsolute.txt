@@ -8,3 +8,13 @@ C:\Users\renmokun\Desktop\FPKPL\KPL2018\WindowsFormsApp2\WindowsFormsApp2\bin\De
 C:\Users\renmokun\Desktop\FPKPL\KPL2018\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
 C:\Users\renmokun\Desktop\FPKPL\KPL2018\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
 C:\Users\renmokun\Desktop\FPKPL\KPL2018\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\renmokun\Desktop\KPL2018\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\SimplePaint.csprojResolveAssemblyReference.cache
+C:\Users\renmokun\Desktop\KPL2018\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\SimplePaint.Display.resources
+C:\Users\renmokun\Desktop\KPL2018\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\SimplePaint.csproj.GenerateResource.Cache
+C:\Users\renmokun\Desktop\KPL2018\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\renmokun\Desktop\KPL2018\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\renmokun\Desktop\KPL2018\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\renmokun\Desktop\KPL2018\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\renmokun\Desktop\KPL2018\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\renmokun\Desktop\KPL2018\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\renmokun\Desktop\KPL2018\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\SimplePaint.csproj.CoreCompileInputs.cache
