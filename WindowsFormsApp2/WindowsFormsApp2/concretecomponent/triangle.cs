@@ -25,9 +25,7 @@ namespace SimplePaint
             this.p = p;
         }
 
-        protected triangle()
-        {
-        }
+        
 
         public override void draw()
         {

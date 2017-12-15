@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 using System.Drawing.Drawing2D;
 
 namespace SimplePaint
@@ -14,17 +15,14 @@ namespace SimplePaint
     public partial class Display : Form
     {
         int tebal = 10, initialX, initialY;
-
+        contextrumus A = new contextrumus();
         Color wrn, wrn1;
+        double luas;
         Pen p;
         private Graphics objGraphic;
         private bool shouldPaint = false;
-        Boolean line, rectang, circle, trangle;
+        Boolean line, rectang, circle,trangle;
         double px, py, vector;
-        rectangle r;
-        //triangle
-        private List<Point> points = new List<Point>();
-        Point[] list = new Point[3];
         void buttoncolor()
         {
             line_button.BackColor = Color.Snow; rect_button.BackColor = Color.Snow;
@@ -37,6 +35,9 @@ namespace SimplePaint
             p = new Pen(Color.Black);
          
         }
+
+       
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             objGraphic = panel1.CreateGraphics();
@@ -44,34 +45,10 @@ namespace SimplePaint
         /*void rumusline()
         {
             px = newCoor.X; py = newCoor.Y;
-            vector = Math.Sqrt((Math.Pow(px, 2)) + (Math.Pow(py, 2)));
-            angle = Math.Atan(py / px) * 180 / Math.PI; //display();
-        }*/
-        /*void rumusrectang()
-        {
-            px = width; py = height;
-            vector = px * py;
-            if (rectang == true)
-            { angle = 0; }
-            //display();
+          
         }
-
-        void rumuscircle()
-        {
-            px = cirW; py = cirL;
-            vector = Math.PI * 0.5 * (cirW + cirL);
-            if (circle == true)
-            { angle = 360; }
-            //display();
-        }
-        void rumustriangle()
-        {
-            px = b.X - a.X; py = c.Y;
-            vector = 0.5 * px * py;
-            if (trangle == true)
-            { angle = 180; }
-            //display();
-        }*/
+      
+       */
         void reset()
         {
             line = false; rectang = false;
@@ -84,11 +61,6 @@ namespace SimplePaint
             {
                 shouldPaint = true;
                 initialX = e.X;initialY = e.Y;
-                /*else if (trangle == true)
-                {
-                    if (triangle_step == false)
-                        shouldPaint = true;
-                }*/
             }
         }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
@@ -98,48 +70,52 @@ namespace SimplePaint
             {
                 if (line == true)
                 {
-                    line l = new line(initialX, initialY, p, e.X, e.Y, objGraphic,3);
+                    line l = new line(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
                     l.draw();
-                    //rumusline(); 
+                    A.pakairumushitung(new rumusgarisstrategy());
                 }
                 else if (rectang == true)
                 {
-                    //                 width = e.X - initialX;
-                    //                  height = e.Y - initialY;
-                    rectangle r = new rectangle(initialX, initialY, p, e.X, e.Y, objGraphic,3);
+                    rectangle r = new rectangle(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
                     r.draw();
-                    //decorator b = new decorator(r);
-                    //rumusrectang(); 
+                    A.pakairumushitung(new rumuspersegistrategy());
                 }
+
                 else if (circle == true)
                 {
-                    circle r = new circle(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
-                    //cirW = Math.Abs(e.X - initialX);
-                    //cirL = Math.Abs(e.Y - initialY);
-                    r.draw();   
-                //cir.draw(p, e.X, e.Y, objGraphic);
-                }    
-                    shouldPaint = false;
-                    /*else if (trangle == true)
-                        {
-                            if (triangle_step == false)
-                            {
-                                newCoor = new Point(e.X, e.Y);
-                                objGraphic.DrawLine(p, preCoor, newCoor);
-                                rumusline();
-                                triangle_step = true;
-                            }
-                            if(triangle_step == true)
-                            {
-                                Point newCoorgain = new Point (e.X, e.Y);
-                                objGraphic.DrawLine(p, preCoor, newCoorgain);
-                                objGraphic.DrawLine(p, preCoor, newCoor);
-                            }
-                            shouldPaint = false;
-                            objGraphic.DrawPolygon(p, list);
-                            rumustriangle(); shouldPaint = false;
-                        }*/
-            }
+                    circle c = new circle(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
+                    c.draw();
+                    A.pakairumushitung(new rumuslingkaranstrategy());
+                }
+                else 
+                {
+                    triangle t = new triangle(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
+                    t.draw();
+                    A.pakairumushitung(new rumustrianglestrategy());
+                }
+
+                int selisihX, selisihY;
+                if(circle == true || rectang ==true ||line==true)
+                {
+                    selisihX =Math.Abs( e.X - initialX);
+                    selisihY =Math.Abs(e.Y - initialY);
+                }
+                else
+                {
+                    Point A = new Point(initialX + (e.X / 2), initialY);
+                    Point B = new Point(initialX+e.X, initialY + e.Y);
+                    Point C = new Point(initialX, initialY +e.Y);
+                    selisihX = B.X - A.X;
+                    selisihY = C.Y;
+                }
+                luas = Math.Round(Math.Abs(A.luas(e.X, e.Y, initialX, initialY)),2);
+                W_Indicator.Text = selisihX.ToString();
+                H_Indicator.Text = selisihY.ToString();
+                A_Indicator.Text = luas.ToString();
+                }
+                shouldPaint = false;
+                    
+            
         }
         private void rect_button_Click(object sender, EventArgs e)
         {
@@ -147,6 +123,7 @@ namespace SimplePaint
             rectang = true;
             buttoncolor();
             rect_button.BackColor = Color.LightCyan;
+            changinglabel.Text = "A";
         }
         private void line_button_Click(object sender, EventArgs e)
         {
@@ -154,6 +131,7 @@ namespace SimplePaint
             line = true;
             buttoncolor();
             line_button.BackColor = Color.LightCyan;
+            changinglabel.Text = "D";
         }
         private void elips_button_Click(object sender, EventArgs e)
         {
@@ -161,13 +139,15 @@ namespace SimplePaint
             circle = true;
             buttoncolor();
             elips_button.BackColor = Color.LightCyan;
+            changinglabel.Text = "A";
         }
-        private void triangle_Click(object sender, EventArgs e)
+        private void trianglebutton_click(object sender, MouseEventArgs e)
         {
             reset();
             trangle = true;
             buttoncolor();
             triangle.BackColor = Color.LightCyan;
+            changinglabel.Text = "A";
         }
         private void label1_Click(object sender, EventArgs e)
         {

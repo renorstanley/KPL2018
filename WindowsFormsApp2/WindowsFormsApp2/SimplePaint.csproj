@@ -57,6 +57,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StrategyHitungRumus\contextrumus.cs" />
+    <Compile Include="StrategyHitungRumus\rumusgarisstrategy.cs" />
+    <Compile Include="StrategyHitungRumus\rumustrianglestrategy.cs" />
+    <Compile Include="StrategyHitungRumus\rumuslingkaranstrategy.cs" />
+    <Compile Include="StrategyHitungRumus\rumusbentukstrategy.cs" />
+    <Compile Include="concretecomponent\triangle.cs" />
+    <Compile Include="StrategyHitungRumus\rumuspersegistrategy.cs" />
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
     </EmbeddedResource>
