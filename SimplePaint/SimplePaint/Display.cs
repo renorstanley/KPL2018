@@ -102,9 +102,9 @@ namespace SimplePaint
                 }
                 else
                 {
-                    Point A = new Point(initialX + (e.X / 2), initialY);
-                    Point B = new Point(initialX+e.X, initialY + e.Y);
-                    Point C = new Point(initialX, initialY +e.Y);
+                    Point A = new Point(initialX + ((e.X - initialX) / 2), initialY);
+                    Point B = new Point(initialX + (e.X - initialX), initialY + (e.Y - initialY));
+                    Point C = new Point(initialX, initialY + (e.Y - initialY));
                     selisihX = B.X - A.X;
                     selisihY = C.Y;
                 }
