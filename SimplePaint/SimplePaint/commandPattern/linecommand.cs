@@ -37,6 +37,7 @@ namespace SimplePaint
         private int Width, Height;
         public void savepreviouspixel()
         {
+<<<<<<< HEAD
             Width = Math.Abs(_toX - _fromX);
             Height = Math.Abs(_toY - _fromY);
             for (int i = _fromX; i < _fromX + Width; i++)
@@ -50,6 +51,12 @@ namespace SimplePaint
                 for (int j = _fromY; j < _fromY + Height; j++)
                     _Bitmap.SetPixel(i, j, _colors[ix++]);
 
+=======
+            _p.Color = bg;
+            _sb.Color = bg;
+            line l = new line(_fromX, _fromY, _p, _toX, _toY, _objGraphic);
+            l.draw();
+>>>>>>> bec65d789c9efe7d15f91b4325f99933de86dcea
         }
     }
 }

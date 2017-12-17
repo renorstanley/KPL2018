@@ -100,8 +100,13 @@ namespace SimplePaint
                     iCommand lastCommand = _commandStack.Pop();
 
                     // Call the Undo method
+<<<<<<< HEAD
                     lastCommand.Undo();
                     
+=======
+                    lastCommand.Undo(bg);
+
+>>>>>>> bec65d789c9efe7d15f91b4325f99933de86dcea
                 }
                 
             }

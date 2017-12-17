@@ -37,6 +37,7 @@ namespace SimplePaint
         private int Width, Height;
         public void savepreviouspixel()
         {
+<<<<<<< HEAD
             Width = Math.Abs(_toX - _fromX);
             Height = (Math.Abs(_toY - _fromY))+2;
             for (int i = _fromX; i < _fromX + Width; i++)
@@ -50,6 +51,12 @@ namespace SimplePaint
                 for (int j = _fromY; j < _fromY + Height; j++)
                     _Bitmap.SetPixel(i, j, _colors[ix++]);
 
+=======
+            _p.Color = bg;
+            _sb.Color = bg;
+            triangle t = new triangle(_fromX, _fromY, _p, _sb, _toX, _toY, _objGraphic);
+            t.draw();
+>>>>>>> bec65d789c9efe7d15f91b4325f99933de86dcea
         }
     }
 }
