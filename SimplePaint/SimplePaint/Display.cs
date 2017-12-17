@@ -15,15 +15,16 @@ namespace SimplePaint
     public partial class Display : Form
     {
         private Stack<iCommand> _commandStack = new Stack<iCommand>();
+        Stack<iCommand> redrawer = new Stack<iCommand>();
         int tebal = 1, initialX, initialY;
         contextrumus A = new contextrumus();
-        Color wrn, wrn1,bg = Color.White;
+        Color wrn, wrn1, bg = Color.White;
         double luas;
         Pen p;
         SolidBrush sb;
         private Graphics objGraphic;
         private bool shouldPaint = false;
-        Boolean line, rectang, circle,trangle;
+        Boolean line, rectang, circle, trangle;
         double px, py, vector;
         void buttoncolor()
         {
@@ -36,6 +37,7 @@ namespace SimplePaint
             InitializeComponent();
             //initial color
             wrn = Color.Black;
+
         }
 
         private void bg_colorButton_Click(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace SimplePaint
             ColorDialog c = new ColorDialog();
             System.Windows.Forms.DialogResult myResult = new System.Windows.Forms.DialogResult();
             myResult = c.ShowDialog();
-            if(myResult == System.Windows.Forms.DialogResult.OK)
+            if (myResult == System.Windows.Forms.DialogResult.OK)
             {
                 bg_colorButton.BackColor = c.Color;
                 panel1.BackColor = c.Color;
@@ -96,6 +98,7 @@ namespace SimplePaint
 
                     // Call the Undo method
                     lastCommand.Undo(bg);
+
                 }
                 
             }

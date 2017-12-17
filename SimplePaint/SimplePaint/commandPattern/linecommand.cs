@@ -33,7 +33,7 @@ namespace SimplePaint
         public void Undo(Color bg)
         {
             _p.Color = bg;
-            //_sb.Color = bg;
+            _sb.Color = bg;
             line l = new line(_fromX, _fromY, _p, _toX, _toY, _objGraphic);
             l.draw();
         }

@@ -34,7 +34,7 @@ namespace SimplePaint
         public void Undo(Color bg)
         {
             _p.Color = bg;
-            //_sb.Color = bg;
+            _sb.Color = bg;
             triangle t = new triangle(_fromX, _fromY, _p, _sb, _toX, _toY, _objGraphic);
             t.draw();
         }
