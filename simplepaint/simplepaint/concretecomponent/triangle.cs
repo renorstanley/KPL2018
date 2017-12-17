@@ -15,9 +15,9 @@ namespace SimplePaint
         Pen p;
         SolidBrush sb;
         Point pointA, pointB, pointC;
-        public triangle(int initialX, int initialY, Pen p, SolidBrush sb, int x, int y, Graphics objGraphic, int tebal)
+        public triangle(int initialX, int initialY, Pen p, SolidBrush sb, int x, int y, Graphics objGraphic)
         {
-            this.thickness = tebal;
+            //this.thickness = tebal;
             this.fromX = initialX;
             this.fromY = initialY;
             this.toX = x;
@@ -38,10 +38,12 @@ namespace SimplePaint
             graph.DrawPolygon(p, triPoint);
             graph.FillPolygon(sb, triPoint);
         }
+        /*
         public override int getThickness()
         {
             return this.thickness;
         }
+        */
         public override Graphics GetGraph()
         {
             return this.graph;

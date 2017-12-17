@@ -125,14 +125,17 @@ namespace SimplePaint
             {
                 if (line == true)
                 {
-                    line l = new line(initialX, initialY, p, e.X, e.Y, objGraphic);
-                    l.draw();
+                    command = new linecommand(initialX, initialY, p, e.X, e.Y, objGraphic);
+                    command.Do();
+                    _commandStack.Push(command);
                     A.pakairumushitung(new rumusgarisstrategy());
                 }
                 else if (rectang == true)
                 {
-                    rectangle r = new rectangle(initialX, initialY, p,sb, e.X, e.Y, objGraphic);
-                    r.draw();
+                    command = new rectanglecommand(initialX, initialY, p, sb, e.X, e.Y, objGraphic);
+                    command.Do();
+
+                    _commandStack.Push(command);
                     A.pakairumushitung(new rumuspersegistrategy());
                 }
 
@@ -148,8 +151,9 @@ namespace SimplePaint
                 }
                 else 
                 {
-                    triangle t = new triangle(initialX, initialY, p,sb, e.X, e.Y, objGraphic);
-                    t.draw();
+                    command = new trianglecommand(initialX, initialY, p,sb, e.X, e.Y, objGraphic);
+                    command.Do();
+                    _commandStack.Push(command);
                     A.pakairumushitung(new rumustrianglestrategy());
                 }
 
