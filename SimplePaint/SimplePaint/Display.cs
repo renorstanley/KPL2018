@@ -23,6 +23,7 @@ namespace SimplePaint
         Pen p;
         SolidBrush sb;
         private Graphics objGraphic;
+        private Bitmap _bitmap;
         private bool shouldPaint = false;
         Boolean line, rectang, circle, trangle;
         double px, py, vector;
@@ -37,6 +38,8 @@ namespace SimplePaint
             InitializeComponent();
             //initial color
             wrn = Color.Black;
+            _bitmap = new Bitmap(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            panel1.Image = _bitmap;
 
         }
 
@@ -48,7 +51,7 @@ namespace SimplePaint
             if (myResult == System.Windows.Forms.DialogResult.OK)
             {
                 bg_colorButton.BackColor = c.Color;
-                panel1.BackColor = c.Color;
+                A_indicator.BackColor = c.Color;
                 bg = c.Color;
             }
         }
@@ -119,7 +122,8 @@ namespace SimplePaint
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            objGraphic = panel1.CreateGraphics();
+          
+            objGraphic = Graphics.FromImage(panel1.Image);
         }
         void reset()
         {
@@ -193,7 +197,8 @@ namespace SimplePaint
                 luas = Math.Round(Math.Abs(A.luas(e.X, e.Y, initialX, initialY)),2);
                 W_Indicator.Text = selisihX.ToString();
                 H_Indicator.Text = selisihY.ToString();
-                A_Indicator.Text = luas.ToString();
+                A_indicator.Text = luas.ToString();
+                panel1.Refresh();
                 }
                 shouldPaint = false;
                
