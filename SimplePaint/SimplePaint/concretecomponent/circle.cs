@@ -22,6 +22,7 @@ namespace SimplePaint
             this.toY = y;
             this.graph = objGraphic;
             this.sb = sb;
+
         }
         
         public override int getFromX()
@@ -58,6 +59,6 @@ namespace SimplePaint
             graph.FillEllipse(sb, rect);
           
         }
-        
+
     }
 }

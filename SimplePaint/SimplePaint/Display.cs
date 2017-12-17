@@ -15,15 +15,17 @@ namespace SimplePaint
     public partial class Display : Form
     {
         private Stack<iCommand> _commandStack = new Stack<iCommand>();
+        Stack<iCommand> redrawer = new Stack<iCommand>();
         int tebal = 1, initialX, initialY;
         contextrumus A = new contextrumus();
-        Color wrn, wrn1,bg = Color.White;
+        Color wrn, wrn1, bg = Color.White;
         double luas;
         Pen p;
         SolidBrush sb;
         private Graphics objGraphic;
+        private Bitmap _bitmap;
         private bool shouldPaint = false;
-        Boolean line, rectang, circle,trangle;
+        Boolean line, rectang, circle, trangle;
         double px, py, vector;
         void buttoncolor()
         {
@@ -36,6 +38,9 @@ namespace SimplePaint
             InitializeComponent();
             //initial color
             wrn = Color.Black;
+            _bitmap = new Bitmap(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            panel1.Image = _bitmap;
+
         }
 
         private void bg_colorButton_Click(object sender, EventArgs e)
@@ -43,10 +48,10 @@ namespace SimplePaint
             ColorDialog c = new ColorDialog();
             System.Windows.Forms.DialogResult myResult = new System.Windows.Forms.DialogResult();
             myResult = c.ShowDialog();
-            if(myResult == System.Windows.Forms.DialogResult.OK)
+            if (myResult == System.Windows.Forms.DialogResult.OK)
             {
                 bg_colorButton.BackColor = c.Color;
-                panel1.BackColor = c.Color;
+                A_indicator.BackColor = c.Color;
                 bg = c.Color;
             }
         }
@@ -95,10 +100,16 @@ namespace SimplePaint
                     iCommand lastCommand = _commandStack.Pop();
 
                     // Call the Undo method
-                    lastCommand.Undo(bg);
+                    lastCommand.Undo();
+                    
                 }
                 
             }
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void undo_Click(object sender, EventArgs e)
@@ -109,14 +120,16 @@ namespace SimplePaint
                 iCommand lastCommand = _commandStack.Pop();
 
                 // Call the Undo method
-                lastCommand.Undo(bg);
+                lastCommand.Undo();
+                panel1.Refresh();
             }
 
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            objGraphic = panel1.CreateGraphics();
+          
+            objGraphic = Graphics.FromImage(panel1.Image);
         }
         void reset()
         {
@@ -141,23 +154,27 @@ namespace SimplePaint
             {
                 if (line == true)
                 {
-                    command = new linecommand(initialX, initialY, p, e.X, e.Y, objGraphic);
+                    
+                    command = new linecommand(initialX, initialY, p, e.X, e.Y, objGraphic, _bitmap);
                     command.Do();
                     _commandStack.Push(command);
                     A.pakairumushitung(new rumusgarisstrategy());
+                    
                 }
                 else if (rectang == true)
                 {
-                    command = new rectanglecommand(initialX, initialY, p, sb, e.X, e.Y, objGraphic);
+                    
+                    command = new rectanglecommand(initialX, initialY, p, sb, e.X, e.Y, objGraphic, _bitmap);
                     command.Do();
 
                     _commandStack.Push(command);
                     A.pakairumushitung(new rumuspersegistrategy());
+                    
                 }
 
                 else if (circle == true)
                 {
-                    command = new circlecommand(initialX, initialY, p, sb, e.X, e.Y, objGraphic);
+                    command = new circlecommand(initialX, initialY, p, sb, e.X, e.Y, objGraphic, _bitmap);
                     command.Do();
                     //circle c = new circle(initialX, initialY, p,sb, e.X, e.Y, objGraphic);
                     //c.draw();
@@ -167,10 +184,12 @@ namespace SimplePaint
                 }
                 else 
                 {
-                    command = new trianglecommand(initialX, initialY, p,sb, e.X, e.Y, objGraphic);
+                    
+                    command = new trianglecommand(initialX, initialY, p,sb, e.X, e.Y, objGraphic, _bitmap);
                     command.Do();
                     _commandStack.Push(command);
                     A.pakairumushitung(new rumustrianglestrategy());
+                    
                 }
 
                 int selisihX, selisihY;
@@ -190,7 +209,8 @@ namespace SimplePaint
                 luas = Math.Round(Math.Abs(A.luas(e.X, e.Y, initialX, initialY)),2);
                 W_Indicator.Text = selisihX.ToString();
                 H_Indicator.Text = selisihY.ToString();
-                A_Indicator.Text = luas.ToString();
+                A_indicator.Text = luas.ToString();
+                panel1.Refresh();
                 }
                 shouldPaint = false;
                

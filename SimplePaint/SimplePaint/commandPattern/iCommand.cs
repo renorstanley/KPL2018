@@ -9,6 +9,6 @@ namespace SimplePaint
     public interface iCommand
     {
         void Do();
-        void Undo(Color bg);
+        void Undo();
     }
 }
