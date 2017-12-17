@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Display));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.pen_button = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel3 = new System.Windows.Forms.Panel();
             this.triangle = new System.Windows.Forms.Button();
             this.elips_button = new System.Windows.Forms.Button();
@@ -49,6 +49,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.undo = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.erase_button = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -59,8 +61,6 @@
             this.H_decorator = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.undo = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -89,19 +89,6 @@
             this.panel2.Size = new System.Drawing.Size(158, 67);
             this.panel2.TabIndex = 1;
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(86, 39);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(72, 20);
-            this.numericUpDown1.TabIndex = 3;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
             // pen_button
             // 
             this.pen_button.Location = new System.Drawing.Point(0, 36);
@@ -120,6 +107,19 @@
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Pens";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(86, 39);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(72, 20);
+            this.numericUpDown1.TabIndex = 3;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // panel3
             // 
@@ -287,6 +287,27 @@
             this.panel5.Size = new System.Drawing.Size(158, 100);
             this.panel5.TabIndex = 4;
             // 
+            // undo
+            // 
+            this.undo.Location = new System.Drawing.Point(81, 65);
+            this.undo.Name = "undo";
+            this.undo.Size = new System.Drawing.Size(77, 32);
+            this.undo.TabIndex = 7;
+            this.undo.Text = "undo";
+            this.undo.UseVisualStyleBackColor = true;
+            this.undo.Click += new System.EventHandler(this.undo_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(3, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Ketebalan";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // erase_button
             // 
             this.erase_button.Location = new System.Drawing.Point(3, 65);
@@ -295,6 +316,7 @@
             this.erase_button.TabIndex = 5;
             this.erase_button.Text = "all clear";
             this.erase_button.UseVisualStyleBackColor = true;
+            this.erase_button.Click += new System.EventHandler(this.erase_button_Click);
             // 
             // textBox4
             // 
@@ -390,27 +412,6 @@
             this.textBox5.TabIndex = 0;
             this.textBox5.Text = "Size Summary";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(3, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 19);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Ketebalan";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // undo
-            // 
-            this.undo.Location = new System.Drawing.Point(81, 65);
-            this.undo.Name = "undo";
-            this.undo.Size = new System.Drawing.Size(77, 32);
-            this.undo.TabIndex = 7;
-            this.undo.Text = "undo";
-            this.undo.UseVisualStyleBackColor = true;
-            this.undo.Click += new System.EventHandler(this.undo_Click);
             // 
             // Display
             // 

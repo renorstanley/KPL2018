@@ -85,6 +85,22 @@ namespace SimplePaint
 
         }
 
+        private void erase_button_Click(object sender, EventArgs e)
+        {
+            if (_commandStack.Count > 0)
+            {
+                while(_commandStack.Count > 0)
+                {
+                    // Remove the last command 
+                    iCommand lastCommand = _commandStack.Pop();
+
+                    // Call the Undo method
+                    lastCommand.Undo(bg);
+                }
+                
+            }
+        }
+
         private void undo_Click(object sender, EventArgs e)
         {
             if (_commandStack.Count > 0)
