@@ -14,11 +14,12 @@ namespace SimplePaint
 {
     public partial class Display : Form
     {
-        int tebal = 10, initialX, initialY;
+        int tebal = 1, initialX, initialY;
         contextrumus A = new contextrumus();
         Color wrn, wrn1;
         double luas;
         Pen p;
+        SolidBrush sb;
         private Graphics objGraphic;
         private bool shouldPaint = false;
         Boolean line, rectang, circle,trangle;
@@ -32,23 +33,61 @@ namespace SimplePaint
         public Display()
         {
             InitializeComponent();
-            p = new Pen(Color.Black);
-         
+            //initial color
+            wrn = Color.Black;
         }
 
-       
+        private void bg_colorButton_Click(object sender, EventArgs e)
+        {
+            ColorDialog c = new ColorDialog();
+            System.Windows.Forms.DialogResult myResult = new System.Windows.Forms.DialogResult();
+            myResult = c.ShowDialog();
+            if(myResult == System.Windows.Forms.DialogResult.OK)
+            {
+                bg_colorButton.BackColor = c.Color;
+                panel1.BackColor = c.Color;
+               
+            }
+        }
+
+        private void fore_colorButton_Click(object sender, EventArgs e)
+        {
+            ColorDialog c = new ColorDialog();
+            System.Windows.Forms.DialogResult myResult = new System.Windows.Forms.DialogResult();
+            myResult = c.ShowDialog();
+            if (myResult == System.Windows.Forms.DialogResult.OK)
+            {
+                fore_colorButton.BackColor = c.Color;
+                wrn = c.Color;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ColorDialog c = new ColorDialog();
+            System.Windows.Forms.DialogResult myResult = new System.Windows.Forms.DialogResult();
+            myResult = c.ShowDialog();
+            if (myResult == System.Windows.Forms.DialogResult.OK)
+            {
+                button1.BackColor = c.Color;
+                wrn1 = c.Color;
+            }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            tebal =Convert.ToInt32(numericUpDown1.Value);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             objGraphic = panel1.CreateGraphics();
         }
-        /*void rumusline()
-        {
-            px = newCoor.X; py = newCoor.Y;
-          
-        }
-      
-       */
         void reset()
         {
             line = false; rectang = false;
@@ -65,7 +104,8 @@ namespace SimplePaint
         }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
-
+            p = new Pen(wrn, tebal);
+            sb = new SolidBrush(wrn1);
             if (shouldPaint == true)
             {
                 if (line == true)
@@ -76,20 +116,20 @@ namespace SimplePaint
                 }
                 else if (rectang == true)
                 {
-                    rectangle r = new rectangle(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
+                    rectangle r = new rectangle(initialX, initialY, p,sb, e.X, e.Y, objGraphic, 3);
                     r.draw();
                     A.pakairumushitung(new rumuspersegistrategy());
                 }
 
                 else if (circle == true)
                 {
-                    circle c = new circle(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
+                    circle c = new circle(initialX, initialY, p,sb, e.X, e.Y, objGraphic, 3);
                     c.draw();
                     A.pakairumushitung(new rumuslingkaranstrategy());
                 }
                 else 
                 {
-                    triangle t = new triangle(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
+                    triangle t = new triangle(initialX, initialY, p,sb, e.X, e.Y, objGraphic, 3);
                     t.draw();
                     A.pakairumushitung(new rumustrianglestrategy());
                 }

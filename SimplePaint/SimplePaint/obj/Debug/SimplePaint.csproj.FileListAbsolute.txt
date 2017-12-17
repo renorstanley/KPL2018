@@ -28,3 +28,13 @@ C:\Users\MuhammadHusainFuad\Documents\KPL2018\SimplePaint\SimplePaint\obj\Debug\
 C:\Users\MuhammadHusainFuad\Documents\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.csproj.CoreCompileInputs.cache
 C:\Users\MuhammadHusainFuad\Documents\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.exe
 C:\Users\MuhammadHusainFuad\Documents\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.pdb
+C:\Users\renmokun\Desktop\KPL2018\SimplePaint\SimplePaint\bin\Debug\SimplePaint.exe.config
+C:\Users\renmokun\Desktop\KPL2018\SimplePaint\SimplePaint\bin\Debug\SimplePaint.exe
+C:\Users\renmokun\Desktop\KPL2018\SimplePaint\SimplePaint\bin\Debug\SimplePaint.pdb
+C:\Users\renmokun\Desktop\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.csprojResolveAssemblyReference.cache
+C:\Users\renmokun\Desktop\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.Display.resources
+C:\Users\renmokun\Desktop\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.Properties.Resources.resources
+C:\Users\renmokun\Desktop\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.csproj.GenerateResource.Cache
+C:\Users\renmokun\Desktop\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.csproj.CoreCompileInputs.cache
+C:\Users\renmokun\Desktop\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.exe
+C:\Users\renmokun\Desktop\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.pdb

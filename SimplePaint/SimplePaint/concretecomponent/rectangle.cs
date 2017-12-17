@@ -12,7 +12,7 @@ namespace SimplePaint
         int fromX,fromY, toX, toY;
         Graphics graph;
         Pen p;
-        public rectangle(int initialX, int initialY, Pen p, int x, int y, Graphics objGraphic, int tebal)
+        public rectangle(int initialX, int initialY, Pen p, SolidBrush sb, int x, int y, Graphics objGraphic, int tebal)
         {
             this.fromX = initialX ;
             this.fromY = initialY;

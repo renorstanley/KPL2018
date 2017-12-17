@@ -13,7 +13,7 @@ namespace SimplePaint
         Graphics graph;
         Pen p;
         int thickness;
-        public circle(int initialX, int initialY, Pen p, int x, int y, Graphics objGraphic, int tebal)
+        public circle(int initialX, int initialY, Pen p,SolidBrush sb, int x, int y, Graphics objGraphic, int tebal)
         {
             this.fromX = initialX;
             this.fromY = initialY;
