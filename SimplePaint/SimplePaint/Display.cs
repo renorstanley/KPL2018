@@ -14,9 +14,10 @@ namespace SimplePaint
 {
     public partial class Display : Form
     {
+        private Stack<iCommand> _commandStack = new Stack<iCommand>();
         int tebal = 1, initialX, initialY;
         contextrumus A = new contextrumus();
-        Color wrn, wrn1;
+        Color wrn, wrn1,bg = Color.White;
         double luas;
         Pen p;
         SolidBrush sb;
@@ -46,7 +47,7 @@ namespace SimplePaint
             {
                 bg_colorButton.BackColor = c.Color;
                 panel1.BackColor = c.Color;
-               
+                bg = c.Color;
             }
         }
 
@@ -84,6 +85,19 @@ namespace SimplePaint
 
         }
 
+        private void undo_Click(object sender, EventArgs e)
+        {
+            if (_commandStack.Count > 0)
+            {
+                // Remove the last command 
+                iCommand lastCommand = _commandStack.Pop();
+
+                // Call the Undo method
+                lastCommand.Undo(bg);
+            }
+
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             objGraphic = panel1.CreateGraphics();
@@ -104,32 +118,37 @@ namespace SimplePaint
         }
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
+            iCommand command;
             p = new Pen(wrn, tebal);
             sb = new SolidBrush(wrn1);
             if (shouldPaint == true)
             {
                 if (line == true)
                 {
-                    line l = new line(initialX, initialY, p, e.X, e.Y, objGraphic, 3);
+                    line l = new line(initialX, initialY, p, e.X, e.Y, objGraphic);
                     l.draw();
                     A.pakairumushitung(new rumusgarisstrategy());
                 }
                 else if (rectang == true)
                 {
-                    rectangle r = new rectangle(initialX, initialY, p,sb, e.X, e.Y, objGraphic, 3);
+                    rectangle r = new rectangle(initialX, initialY, p,sb, e.X, e.Y, objGraphic);
                     r.draw();
                     A.pakairumushitung(new rumuspersegistrategy());
                 }
 
                 else if (circle == true)
                 {
-                    circle c = new circle(initialX, initialY, p,sb, e.X, e.Y, objGraphic, 3);
-                    c.draw();
+                    command = new circlecommand(initialX, initialY, p, sb, e.X, e.Y, objGraphic);
+                    command.Do();
+                    //circle c = new circle(initialX, initialY, p,sb, e.X, e.Y, objGraphic);
+                    //c.draw();
+ 
+                    _commandStack.Push(command);
                     A.pakairumushitung(new rumuslingkaranstrategy());
                 }
                 else 
                 {
-                    triangle t = new triangle(initialX, initialY, p,sb, e.X, e.Y, objGraphic, 3);
+                    triangle t = new triangle(initialX, initialY, p,sb, e.X, e.Y, objGraphic);
                     t.draw();
                     A.pakairumushitung(new rumustrianglestrategy());
                 }
@@ -154,8 +173,9 @@ namespace SimplePaint
                 A_Indicator.Text = luas.ToString();
                 }
                 shouldPaint = false;
-                    
-            
+               
+
+
         }
         private void rect_button_Click(object sender, EventArgs e)
         {

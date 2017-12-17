@@ -12,8 +12,8 @@ namespace SimplePaint
         int fromX, fromY, toX, toY;
         Graphics graph;
         Pen p;
-        int thickness;
-        public circle(int initialX, int initialY, Pen p,SolidBrush sb, int x, int y, Graphics objGraphic, int tebal)
+        SolidBrush sb;
+        public circle(int initialX, int initialY, Pen p,SolidBrush sb, int x, int y, Graphics objGraphic)
         {
             this.fromX = initialX;
             this.fromY = initialY;
@@ -21,12 +21,9 @@ namespace SimplePaint
             this.toX = x;
             this.toY = y;
             this.graph = objGraphic;
-            this.thickness = tebal;
+            this.sb = sb;
         }
-        public override int getThickness()
-        {
-            return this.thickness;
-        }
+        
         public override int getFromX()
         {
             return this.fromX;
@@ -58,7 +55,9 @@ namespace SimplePaint
                   Math.Abs(toX - fromX),
                   Math.Abs(toY - fromY));
             graph.DrawEllipse(p, rect);
-    
-          }
+            graph.FillEllipse(sb, rect);
+          
+        }
+        
     }
 }

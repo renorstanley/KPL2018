@@ -13,7 +13,6 @@ namespace SimplePaint
         public abstract int getFromY();
         public abstract int getToX();
         public abstract int getToY();
-        public abstract int getThickness();
         public abstract string shapetype();
         public abstract Graphics GetGraph();
     }

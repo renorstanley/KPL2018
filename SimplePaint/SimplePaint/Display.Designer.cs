@@ -60,6 +60,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.undo = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -276,6 +277,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.undo);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.numericUpDown1);
             this.panel5.Controls.Add(this.erase_button);
@@ -289,9 +291,9 @@
             // 
             this.erase_button.Location = new System.Drawing.Point(3, 65);
             this.erase_button.Name = "erase_button";
-            this.erase_button.Size = new System.Drawing.Size(152, 32);
+            this.erase_button.Size = new System.Drawing.Size(77, 32);
             this.erase_button.TabIndex = 5;
-            this.erase_button.Text = "erase";
+            this.erase_button.Text = "all clear";
             this.erase_button.UseVisualStyleBackColor = true;
             // 
             // textBox4
@@ -400,6 +402,16 @@
             this.label3.Text = "Ketebalan";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // undo
+            // 
+            this.undo.Location = new System.Drawing.Point(81, 65);
+            this.undo.Name = "undo";
+            this.undo.Size = new System.Drawing.Size(77, 32);
+            this.undo.TabIndex = 7;
+            this.undo.Text = "undo";
+            this.undo.UseVisualStyleBackColor = true;
+            this.undo.Click += new System.EventHandler(this.undo_Click);
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -462,6 +474,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button undo;
     }
 }
 

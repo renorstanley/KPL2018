@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="commandPattern\circlecommand.cs" />
+    <Compile Include="commandPattern\iCommand.cs" />
     <Compile Include="component\Shape.cs" />
     <Compile Include="concretecomponent\circle.cs" />
     <Compile Include="concretecomponent\line.cs" />
