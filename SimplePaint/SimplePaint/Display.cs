@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Linq;
 using System.Drawing.Drawing2D;
 
 namespace SimplePaint
@@ -100,15 +99,11 @@ namespace SimplePaint
                     iCommand lastCommand = _commandStack.Pop();
 
                     // Call the Undo method
-<<<<<<< HEAD
+
                     lastCommand.Undo();
                     
-=======
-                    lastCommand.Undo(bg);
-
->>>>>>> bec65d789c9efe7d15f91b4325f99933de86dcea
                 }
-                
+                panel1.Refresh();
             }
         }
 

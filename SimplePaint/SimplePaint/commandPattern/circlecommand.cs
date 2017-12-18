@@ -35,29 +35,23 @@ namespace SimplePaint
             
         }
         private IList<Color> _colors = new List<Color>();
-        private int Width,Height; 
+        private static int extender = 10;
         public void savepreviouspixel()
         {
-<<<<<<< HEAD
-            Width = (Math.Abs(_toX - _fromX))+2;
-            Height = (Math.Abs(_toY - _fromY))+2;
-            for (int i = _fromX; i < _fromX + Width; i++)
-                for (int j = _fromY; j < _fromY + Height; j++)
-                    _colors.Add(_Bitmap.GetPixel(i, j));
+           
+                for (int i = _fromX - extender; i < _toX + extender; i++)
+                    for (int j = _fromY - extender; j < _toY + extender; j++)
+                        _colors.Add(_Bitmap.GetPixel(i, j));
+           
         }
         public void Undo()
         {
             int ix = 0;
-            for (int i = _fromX; i < _fromX + Width; i++)
-                for (int j = _fromY; j < _fromY + Height; j++)
+            for (int i = _fromX - extender; i < _toX + extender; i++)
+                for (int j = _fromY - extender; j < _toY + extender; j++)
                     _Bitmap.SetPixel(i, j, _colors[ix++]);
-             
-=======
-            _p.Color = bg;
-            _sb.Color = bg;
-           circle c = new circle(_fromX, _fromY, _p, _sb, _toX, _toY, _objGraphic);
-            c.draw();
->>>>>>> bec65d789c9efe7d15f91b4325f99933de86dcea
+
+
         }
 
     }

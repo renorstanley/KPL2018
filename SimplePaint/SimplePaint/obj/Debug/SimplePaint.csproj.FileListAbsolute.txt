@@ -58,3 +58,13 @@ C:\Users\Faris Musthafa\Documents\GitHub\KPL2018\SimplePaint\SimplePaint\obj\Deb
 C:\Users\Faris Musthafa\Documents\GitHub\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.csproj.CoreCompileInputs.cache
 C:\Users\Faris Musthafa\Documents\GitHub\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.exe
 C:\Users\Faris Musthafa\Documents\GitHub\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.pdb
+C:\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.csprojResolveAssemblyReference.cache
+C:\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.Display.resources
+C:\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.Properties.Resources.resources
+C:\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.csproj.GenerateResource.Cache
+C:\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.csproj.CoreCompileInputs.cache
+C:\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.exe
+C:\KPL2018\SimplePaint\SimplePaint\obj\Debug\SimplePaint.pdb
+C:\KPL2018\SimplePaint\SimplePaint\bin\Debug\SimplePaint.exe.config
+C:\KPL2018\SimplePaint\SimplePaint\bin\Debug\SimplePaint.exe
+C:\KPL2018\SimplePaint\SimplePaint\bin\Debug\SimplePaint.pdb

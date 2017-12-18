@@ -101,6 +101,16 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(86, 39);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(72, 20);
             this.numericUpDown1.TabIndex = 3;
@@ -415,10 +425,7 @@
             this.panel1.Size = new System.Drawing.Size(736, 513);
             this.panel1.TabIndex = 5;
             this.panel1.TabStop = false;
-<<<<<<< HEAD
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
-=======
->>>>>>> bec65d789c9efe7d15f91b4325f99933de86dcea
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
