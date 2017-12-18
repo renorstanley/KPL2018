@@ -238,24 +238,28 @@ namespace SimplePaint
                     //do nothing
                 }
 
-                int selisihX, selisihY;
-                if(circle == true || rectang ==true ||line==true)
+                if(freehand == false)
                 {
-                    selisihX =Math.Abs( e.X - initialX);
-                    selisihY =Math.Abs(e.Y - initialY);
+                    int selisihX, selisihY;
+                    if (circle == true || rectang == true || line == true)
+                    {
+                        selisihX = Math.Abs(e.X - initialX);
+                        selisihY = Math.Abs(e.Y - initialY);
+                    }
+                    else
+                    {
+                        Point A = new Point(initialX + ((e.X - initialX) / 2), initialY);
+                        Point B = new Point(initialX + (e.X - initialX), initialY + (e.Y - initialY));
+                        Point C = new Point(initialX, initialY + (e.Y - initialY));
+                        selisihX = B.X - A.X;
+                        selisihY = C.Y;
+                    }
+                    luas = Math.Round(Math.Abs(A.luas(e.X, e.Y, initialX, initialY)), 2);
+                    W_Indicator.Text = selisihX.ToString();
+                    H_Indicator.Text = selisihY.ToString();
+                    A_indicator.Text = luas.ToString();
                 }
-                else
-                {
-                    Point A = new Point(initialX + ((e.X - initialX) / 2), initialY);
-                    Point B = new Point(initialX + (e.X - initialX), initialY + (e.Y - initialY));
-                    Point C = new Point(initialX, initialY + (e.Y - initialY));
-                    selisihX = B.X - A.X;
-                    selisihY = C.Y;
-                }
-                luas = Math.Round(Math.Abs(A.luas(e.X, e.Y, initialX, initialY)),2);
-                W_Indicator.Text = selisihX.ToString();
-                H_Indicator.Text = selisihY.ToString();
-                A_indicator.Text = luas.ToString();
+                
                 panel1.Refresh();
                 }
                 shouldPaint = false;
