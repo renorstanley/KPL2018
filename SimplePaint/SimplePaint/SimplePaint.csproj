@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="commandPattern\circlecommand.cs" />
+    <Compile Include="commandPattern\freehandcommand.cs" />
     <Compile Include="commandPattern\iCommand.cs" />
     <Compile Include="commandPattern\linecommand.cs" />
     <Compile Include="commandPattern\rectanglecommand.cs" />

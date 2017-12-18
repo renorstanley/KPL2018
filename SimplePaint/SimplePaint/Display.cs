@@ -24,7 +24,7 @@ namespace SimplePaint
         private Graphics objGraphic;
         private Bitmap _bitmap;
         private bool shouldPaint = false;
-        Boolean line, rectang, circle, trangle,freehand;
+        Boolean line, rectang, circle, trangle,freehand=true;
         double px, py, vector;
         Point lastPoint = Point.Empty;
         bool isMouseDown = new Boolean();
@@ -98,13 +98,9 @@ namespace SimplePaint
             {
                 while(_commandStack.Count > 0)
                 {
-                    // Remove the last command 
                     iCommand lastCommand = _commandStack.Pop();
-
-                    // Call the Undo method
-
-                    lastCommand.Undo();
-                    
+                 
+                        lastCommand.Undo();
                 }
                 panel1.Refresh();
             }
@@ -121,20 +117,32 @@ namespace SimplePaint
             {
                 // Remove the last command 
                 iCommand lastCommand = _commandStack.Pop();
-
-                // Call the Undo method
-                lastCommand.Undo();
+                textBox1.Text = Convert.ToString(lastCommand);
+                //jika command adalah freehandcommand
+                if (Convert.ToString(lastCommand).Contains("freehand"))
+                {
+                    while (Convert.ToString(lastCommand).Contains("freehand")&& _commandStack.Count>0)
+                    {
+                        lastCommand.Undo();
+                        lastCommand = _commandStack.Pop();
+                        //jika ternyata lastcommand tidak freehand lagi
+                        if (!Convert.ToString(lastCommand).Contains("freehand"))
+                        {
+                            //kembalikan ke stack
+                            _commandStack.Push(lastCommand);
+                        }
+                    }
+                   
+                }
+                else
+                    lastCommand.Undo();
                 panel1.Refresh();
+               
             }
 
         }
 
-        private void pen_button_Click(object sender, EventArgs e)
-        {
-            reset();
-            freehand = true;
-        }
-
+    
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
           
@@ -144,6 +152,7 @@ namespace SimplePaint
         {
             line = false; rectang = false;
             circle = false; trangle = false;
+            freehand = false;
         }
         //membuat point 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -159,29 +168,19 @@ namespace SimplePaint
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
+            iCommand command;
+            p = new Pen(wrn, tebal);
             if (isMouseDown == true)//check to see if the mouse button is down
-
             {
-
                 if (freehand == true)//if our last point is not null, which in this case we have assigned above
-
-                {
-                    
-                    using (Graphics g = Graphics.FromImage(panel1.Image))
-
-                    {//we need to create a Graphics object to draw on the picture box, its our main tool
-
-                        //when making a Pen object, you can just give it color only or give it color and pen size
-
-                        g.DrawLine(new Pen(Color.Black, 2), lastPoint, e.Location);
-                        g.SmoothingMode = SmoothingMode.HighQuality;
-
-                    }
-
-                    panel1.Invalidate();//refreshes the picturebox
-
+                {                    
+                  
+                    command = new freehandcommand(lastPoint, e.Location, p, objGraphic, _bitmap);
+                    command.Do();
+                    _commandStack.Push(command);
+                    panel1.Refresh();//refreshes the picturebox
                     lastPoint = e.Location;//keep assigning the lastPoint to the current mouse position
-
+                    
                 }
 
             }
@@ -268,12 +267,18 @@ namespace SimplePaint
 
 
         }
+        private void pen_button_Click(object sender, EventArgs e)
+        {
+            reset();
+            buttoncolor();
+            freehand = true;
+        }
+
         private void rect_button_Click(object sender, EventArgs e)
         {
             reset();
             rectang = true;
             buttoncolor();
-            rect_button.BackColor = Color.LightCyan;
             changinglabel.Text = "A";
         }
         private void line_button_Click(object sender, EventArgs e)
@@ -281,7 +286,6 @@ namespace SimplePaint
             reset();
             line = true;
             buttoncolor();
-            line_button.BackColor = Color.LightCyan;
             changinglabel.Text = "D";
         }
         private void elips_button_Click(object sender, EventArgs e)
@@ -289,7 +293,6 @@ namespace SimplePaint
             reset();
             circle = true;
             buttoncolor();
-            elips_button.BackColor = Color.LightCyan;
             changinglabel.Text = "A";
         }
         private void trianglebutton_click(object sender, MouseEventArgs e)
@@ -297,7 +300,6 @@ namespace SimplePaint
             reset();
             trangle = true;
             buttoncolor();
-            triangle.BackColor = Color.LightCyan;
             changinglabel.Text = "A";
         }
         private void label1_Click(object sender, EventArgs e)
