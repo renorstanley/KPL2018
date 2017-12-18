@@ -30,7 +30,7 @@ namespace SimplePaint
             
         }
         private IList<Color> _colors = new List<Color>();
-        private static int extender = 30;
+        private static int extender = 10;
         public void savepreviouspixel()
         {
             // memindahkan titik apabila shape di gambar dengan arah yang kebalikan sehingga tetap bisa di undo
@@ -61,7 +61,7 @@ namespace SimplePaint
             }
             if (pixelvoyager_fromy < 0)
             {
-                pixelvoyager_fromx = 0;
+                pixelvoyager_fromy = 0;
             }
             for (int i = pixelvoyager_fromx; i < pixelvoyager_tox; i++)
                 for (int j = pixelvoyager_fromy; j < pixelvoyager_toy; j++)

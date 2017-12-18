@@ -67,7 +67,7 @@ namespace SimplePaint
             }
             if (pixelvoyager_fromy < 0)
             {
-                pixelvoyager_fromx = 0;
+                pixelvoyager_fromy = 0;
             }
             for (int i = pixelvoyager_fromx; i < pixelvoyager_tox; i++)
                for (int j = pixelvoyager_fromy; j < pixelvoyager_toy; j++)
