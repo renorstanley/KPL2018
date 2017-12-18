@@ -24,8 +24,11 @@ namespace SimplePaint
         private Graphics objGraphic;
         private Bitmap _bitmap;
         private bool shouldPaint = false;
-        Boolean line, rectang, circle, trangle;
+        Boolean line, rectang, circle, trangle,freehand;
         double px, py, vector;
+        Point lastPoint = Point.Empty;
+        bool isMouseDown = new Boolean();
+
         void buttoncolor()
         {
             line_button.BackColor = Color.Snow; rect_button.BackColor = Color.Snow;
@@ -126,6 +129,12 @@ namespace SimplePaint
 
         }
 
+        private void pen_button_Click(object sender, EventArgs e)
+        {
+            reset();
+            freehand = true;
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
           
@@ -143,8 +152,41 @@ namespace SimplePaint
             {
                 shouldPaint = true;
                 initialX = e.X;initialY = e.Y;
+                lastPoint = e.Location;
+                isMouseDown = true;
             }
         }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isMouseDown == true)//check to see if the mouse button is down
+
+            {
+
+                if (freehand == true)//if our last point is not null, which in this case we have assigned above
+
+                {
+                    
+                    using (Graphics g = Graphics.FromImage(panel1.Image))
+
+                    {//we need to create a Graphics object to draw on the picture box, its our main tool
+
+                        //when making a Pen object, you can just give it color only or give it color and pen size
+
+                        g.DrawLine(new Pen(Color.Black, 2), lastPoint, e.Location);
+                        g.SmoothingMode = SmoothingMode.HighQuality;
+
+                    }
+
+                    panel1.Invalidate();//refreshes the picturebox
+
+                    lastPoint = e.Location;//keep assigning the lastPoint to the current mouse position
+
+                }
+
+            }
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             iCommand command;
@@ -182,7 +224,7 @@ namespace SimplePaint
                     _commandStack.Push(command);
                     A.pakairumushitung(new rumuslingkaranstrategy());
                 }
-                else 
+                else if (trangle == true)
                 {
                     
                     command = new trianglecommand(initialX, initialY, p,sb, e.X, e.Y, objGraphic, _bitmap);
@@ -190,6 +232,10 @@ namespace SimplePaint
                     _commandStack.Push(command);
                     A.pakairumushitung(new rumustrianglestrategy());
                     
+                }
+                else
+                {
+                    //do nothing
                 }
 
                 int selisihX, selisihY;
@@ -213,7 +259,8 @@ namespace SimplePaint
                 panel1.Refresh();
                 }
                 shouldPaint = false;
-               
+                isMouseDown = false;
+                lastPoint = Point.Empty;
 
 
         }
