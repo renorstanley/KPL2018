@@ -62,13 +62,21 @@ namespace SimplePaint
                 
             }
             //agar tidak melewati batas
-            if(pixelvoyager_fromx <0)
+            if (pixelvoyager_fromx < 0)
             {
                 pixelvoyager_fromx = 0;
             }
-            if(pixelvoyager_fromy<0)
+            else if (pixelvoyager_tox > _Bitmap.Width)
+            {
+                pixelvoyager_tox = _Bitmap.Width;
+            }
+            if (pixelvoyager_fromy < 0)
             {
                 pixelvoyager_fromy = 0;
+            }
+            else if (pixelvoyager_toy > _Bitmap.Height)
+            {
+                pixelvoyager_toy = _Bitmap.Height;
             }
             for (int i = pixelvoyager_fromx; i < pixelvoyager_tox; i++)
                 for (int j = pixelvoyager_fromy; j < pixelvoyager_toy; j++)
