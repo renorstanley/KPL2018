@@ -54,20 +54,21 @@ namespace SimplePaint
                 pixelvoyager_fromy = _to.Y - extender;
                 pixelvoyager_toy = _from.Y + extender;
             }
+            //agar tidak melewati batas
+            if (pixelvoyager_fromx < 0)
+            {
+                pixelvoyager_fromx = 0;
+            }
+            if (pixelvoyager_fromy < 0)
+            {
+                pixelvoyager_fromx = 0;
+            }
             for (int i = pixelvoyager_fromx; i < pixelvoyager_tox; i++)
                 for (int j = pixelvoyager_fromy; j < pixelvoyager_toy; j++)
                     _colors.Add(_Bitmap.GetPixel(i, j));
 
         }
-        //agar tidak melewati batas
-            if(pixelvoyager_fromx<0)
-            {
-                pixelvoyager_fromx = 0;
-            }
-            if(pixelvoyager_fromy<0)
-            {
-                pixelvoyager_fromx = 0;
-            }
+        
 public void Undo()
         {
             int ix = 0;
