@@ -27,10 +27,10 @@ namespace SimplePaint
         {
             savepreviouspixel();
             _objGraphic.DrawLine(_p, _from, _to);
-            _objGraphic.SmoothingMode = SmoothingMode.HighQuality;
+            
         }
         private IList<Color> _colors = new List<Color>();
-        private static int extender = 10;
+        private static int extender = 30;
         public void savepreviouspixel()
         {
             // memindahkan titik apabila shape di gambar dengan arah yang kebalikan sehingga tetap bisa di undo

@@ -40,7 +40,7 @@ namespace SimplePaint
             InitializeComponent();
             //initial color
             wrn = Color.Black;
-            _bitmap = new Bitmap(1920, 1080);
+            _bitmap = new Bitmap(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
             panel1.Image = _bitmap;
 
         }
@@ -121,10 +121,11 @@ namespace SimplePaint
                 //jika command adalah freehandcommand
                 if (Convert.ToString(lastCommand).Contains("freehand"))
                 {
-                    while (Convert.ToString(lastCommand).Contains("freehand")&& _commandStack.Count>0)
+                    while (Convert.ToString(lastCommand).Contains("freehand") && _commandStack.Count>0)
                     {
-                        lastCommand.Undo();
                         lastCommand = _commandStack.Pop();
+                        lastCommand.Undo();
+                       
                         //jika ternyata lastcommand tidak freehand lagi
                         if (!Convert.ToString(lastCommand).Contains("freehand"))
                         {
