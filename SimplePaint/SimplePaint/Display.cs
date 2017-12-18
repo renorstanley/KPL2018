@@ -40,7 +40,7 @@ namespace SimplePaint
             InitializeComponent();
             //initial color
             wrn = Color.Black;
-            _bitmap = new Bitmap(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            _bitmap = new Bitmap(1920, 1080);
             panel1.Image = _bitmap;
 
         }
@@ -117,7 +117,7 @@ namespace SimplePaint
             {
                 // Remove the last command 
                 iCommand lastCommand = _commandStack.Pop();
-                textBox1.Text = Convert.ToString(lastCommand);
+               
                 //jika command adalah freehandcommand
                 if (Convert.ToString(lastCommand).Contains("freehand"))
                 {
