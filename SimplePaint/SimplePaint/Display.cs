@@ -50,7 +50,7 @@ namespace SimplePaint
             if (myResult == System.Windows.Forms.DialogResult.OK)
             {
                 bg_colorButton.BackColor = c.Color;
-                A_indicator.BackColor = c.Color;
+                panel1.BackColor = c.Color;
                 bg = c.Color;
             }
         }
