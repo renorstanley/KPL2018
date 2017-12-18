@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace SimplePaint
 {
@@ -40,9 +41,10 @@ namespace SimplePaint
             InitializeComponent();
             //initial color
             wrn = Color.Black;
-            _bitmap = new Bitmap(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            _bitmap = new Bitmap(736,513);
             panel1.Image = _bitmap;
-
+            objGraphic = Graphics.FromImage(panel1.Image);
+            objGraphic.Clear(Color.White);
         }
 
         private void bg_colorButton_Click(object sender, EventArgs e)
@@ -52,9 +54,22 @@ namespace SimplePaint
             myResult = c.ShowDialog();
             if (myResult == System.Windows.Forms.DialogResult.OK)
             {
+                objGraphic.Clear(c.Color);
                 bg_colorButton.BackColor = c.Color;
-                panel1.BackColor = c.Color;
+                
                 bg = c.Color;
+                while (_commandStack.Count>0)
+                {
+                    redrawer.Push(_commandStack.Pop());
+                    
+                }
+                while (redrawer.Count > 0)
+                {
+                    iCommand redraw = redrawer.Pop();
+                    redraw.Do();
+                    _commandStack.Push(redraw);
+                }
+                panel1.Refresh();
             }
         }
 
@@ -143,11 +158,24 @@ namespace SimplePaint
 
         }
 
-    
+        private void save_button_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Images|*.jpg";
+            System.Windows.Forms.DialogResult myResult = new System.Windows.Forms.DialogResult();
+            myResult = save.ShowDialog();
+            ImageFormat format = ImageFormat.Jpeg;
+            if (myResult == System.Windows.Forms.DialogResult.OK)
+            {
+                Graphics saver = Graphics.FromImage(_bitmap);
+                saver.Flush();
+                _bitmap.Save(save.FileName, format);
+            }
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-          
-            objGraphic = Graphics.FromImage(panel1.Image);
+            
         }
         void reset()
         {

@@ -32,6 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pen_button = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel3 = new System.Windows.Forms.Panel();
             this.triangle = new System.Windows.Forms.Button();
@@ -61,7 +62,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.PictureBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.save_button = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -101,6 +102,14 @@
             this.textBox1.Text = "Pens";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(8, 8);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 3;
+            this.textBox6.Visible = false;
+            // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(86, 39);
@@ -133,7 +142,7 @@
             this.panel3.Controls.Add(this.textBox2);
             this.panel3.Location = new System.Drawing.Point(0, 75);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(158, 98);
+            this.panel3.Size = new System.Drawing.Size(158, 78);
             this.panel3.TabIndex = 3;
             // 
             // triangle
@@ -201,7 +210,7 @@
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.textBox3);
-            this.panel4.Location = new System.Drawing.Point(0, 179);
+            this.panel4.Location = new System.Drawing.Point(0, 159);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(158, 106);
             this.panel4.TabIndex = 3;
@@ -280,21 +289,22 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.save_button);
             this.panel5.Controls.Add(this.undo);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.numericUpDown1);
             this.panel5.Controls.Add(this.erase_button);
             this.panel5.Controls.Add(this.textBox4);
-            this.panel5.Location = new System.Drawing.Point(0, 291);
+            this.panel5.Location = new System.Drawing.Point(0, 271);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(158, 100);
+            this.panel5.Size = new System.Drawing.Size(158, 120);
             this.panel5.TabIndex = 4;
             // 
             // undo
             // 
             this.undo.Location = new System.Drawing.Point(81, 65);
             this.undo.Name = "undo";
-            this.undo.Size = new System.Drawing.Size(77, 32);
+            this.undo.Size = new System.Drawing.Size(77, 23);
             this.undo.TabIndex = 7;
             this.undo.Text = "undo";
             this.undo.UseVisualStyleBackColor = true;
@@ -315,7 +325,7 @@
             // 
             this.erase_button.Location = new System.Drawing.Point(3, 65);
             this.erase_button.Name = "erase_button";
-            this.erase_button.Size = new System.Drawing.Size(77, 32);
+            this.erase_button.Size = new System.Drawing.Size(77, 23);
             this.erase_button.TabIndex = 5;
             this.erase_button.Text = "all clear";
             this.erase_button.UseVisualStyleBackColor = true;
@@ -434,13 +444,15 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
-            // textBox6
+            // save_button
             // 
-            this.textBox6.Location = new System.Drawing.Point(8, 8);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 3;
-            this.textBox6.Visible = false;
+            this.save_button.Location = new System.Drawing.Point(3, 94);
+            this.save_button.Name = "save_button";
+            this.save_button.Size = new System.Drawing.Size(152, 23);
+            this.save_button.TabIndex = 8;
+            this.save_button.Text = "Save As Jpg";
+            this.save_button.UseVisualStyleBackColor = true;
+            this.save_button.Click += new System.EventHandler(this.save_button_Click);
             // 
             // Display
             // 
@@ -506,6 +518,7 @@
         private System.Windows.Forms.Button undo;
         private System.Windows.Forms.PictureBox panel1;
         private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button save_button;
     }
 }
 
