@@ -9,11 +9,10 @@ namespace SimplePaint
 {
     class line: Shape
     {
-        int thickness;
         int fromX, fromY, toX, toY;
         Graphics graph;
         Pen p;
-        public line(int initialX, int initialY, Pen p, int x, int y, Graphics objGraphic, int tebal)
+        public line(int initialX, int initialY, Pen p, int x, int y, Graphics objGraphic)
         {
             this.fromX = initialX;
             this.fromY = initialY;
@@ -21,12 +20,9 @@ namespace SimplePaint
             this.toX = x;
             this.toY = y;
             this.graph = objGraphic;
-            this.thickness = tebal;
+            
         }
-        public override int getThickness()
-        {
-            return this.thickness;
-        }
+       
         public override int getFromX()
         {
             return this.fromX;

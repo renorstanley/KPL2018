@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Display));
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pen_button = new System.Windows.Forms.Button();
-            this.pen_lv_combobox = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel3 = new System.Windows.Forms.Panel();
             this.triangle = new System.Windows.Forms.Button();
             this.elips_button = new System.Windows.Forms.Button();
@@ -49,42 +49,37 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.undo = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.erase_button = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.A_Indicator = new System.Windows.Forms.TextBox();
+            this.A_indicator = new System.Windows.Forms.TextBox();
             this.changinglabel = new System.Windows.Forms.Label();
             this.H_Indicator = new System.Windows.Forms.TextBox();
             this.W_Indicator = new System.Windows.Forms.TextBox();
             this.H_decorator = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.PictureBox();
+            this.save_button = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panel1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Location = new System.Drawing.Point(164, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(734, 516);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.pen_button);
-            this.panel2.Controls.Add(this.pen_lv_combobox);
             this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.textBox6);
             this.panel2.Location = new System.Drawing.Point(0, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(158, 93);
+            this.panel2.Size = new System.Drawing.Size(158, 67);
             this.panel2.TabIndex = 1;
             // 
             // pen_button
@@ -95,18 +90,10 @@
             this.pen_button.TabIndex = 2;
             this.pen_button.Text = "use pen";
             this.pen_button.UseVisualStyleBackColor = true;
-            // 
-            // pen_lv_combobox
-            // 
-            this.pen_lv_combobox.FormattingEnabled = true;
-            this.pen_lv_combobox.Location = new System.Drawing.Point(0, 65);
-            this.pen_lv_combobox.Name = "pen_lv_combobox";
-            this.pen_lv_combobox.Size = new System.Drawing.Size(158, 21);
-            this.pen_lv_combobox.TabIndex = 1;
+            this.pen_button.Click += new System.EventHandler(this.pen_button_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Name = "textBox1";
@@ -115,6 +102,37 @@
             this.textBox1.Text = "Pens";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(8, 8);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 3;
+            this.textBox6.Visible = false;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(86, 39);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(72, 20);
+            this.numericUpDown1.TabIndex = 3;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.triangle);
@@ -122,9 +140,9 @@
             this.panel3.Controls.Add(this.rect_button);
             this.panel3.Controls.Add(this.line_button);
             this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Location = new System.Drawing.Point(0, 101);
+            this.panel3.Location = new System.Drawing.Point(0, 75);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(158, 72);
+            this.panel3.Size = new System.Drawing.Size(158, 78);
             this.panel3.TabIndex = 3;
             // 
             // triangle
@@ -174,8 +192,8 @@
             // 
             // textBox2
             // 
-            this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Black;
             this.textBox2.Location = new System.Drawing.Point(0, 0);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(158, 30);
@@ -192,19 +210,21 @@
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.textBox3);
-            this.panel4.Location = new System.Drawing.Point(0, 179);
+            this.panel4.Location = new System.Drawing.Point(0, 159);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(158, 106);
             this.panel4.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(105, 76);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(33, 19);
             this.button1.TabIndex = 5;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
@@ -224,6 +244,7 @@
             this.fore_colorButton.Size = new System.Drawing.Size(33, 19);
             this.fore_colorButton.TabIndex = 3;
             this.fore_colorButton.UseVisualStyleBackColor = false;
+            this.fore_colorButton.Click += new System.EventHandler(this.fore_colorButton_Click);
             // 
             // bg_colorButton
             // 
@@ -233,6 +254,7 @@
             this.bg_colorButton.Size = new System.Drawing.Size(33, 19);
             this.bg_colorButton.TabIndex = 0;
             this.bg_colorButton.UseVisualStyleBackColor = false;
+            this.bg_colorButton.Click += new System.EventHandler(this.bg_colorButton_Click);
             // 
             // label2
             // 
@@ -257,7 +279,6 @@
             // 
             // textBox3
             // 
-            this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(0, 0);
             this.textBox3.Name = "textBox3";
@@ -268,21 +289,47 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.save_button);
+            this.panel5.Controls.Add(this.undo);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.numericUpDown1);
             this.panel5.Controls.Add(this.erase_button);
             this.panel5.Controls.Add(this.textBox4);
-            this.panel5.Location = new System.Drawing.Point(0, 291);
+            this.panel5.Location = new System.Drawing.Point(0, 271);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(158, 63);
+            this.panel5.Size = new System.Drawing.Size(158, 120);
             this.panel5.TabIndex = 4;
+            // 
+            // undo
+            // 
+            this.undo.Location = new System.Drawing.Point(81, 65);
+            this.undo.Name = "undo";
+            this.undo.Size = new System.Drawing.Size(77, 23);
+            this.undo.TabIndex = 7;
+            this.undo.Text = "undo";
+            this.undo.UseVisualStyleBackColor = true;
+            this.undo.Click += new System.EventHandler(this.undo_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(3, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Ketebalan";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // erase_button
             // 
-            this.erase_button.Location = new System.Drawing.Point(3, 31);
+            this.erase_button.Location = new System.Drawing.Point(3, 65);
             this.erase_button.Name = "erase_button";
-            this.erase_button.Size = new System.Drawing.Size(152, 32);
+            this.erase_button.Size = new System.Drawing.Size(77, 23);
             this.erase_button.TabIndex = 5;
-            this.erase_button.Text = "erase";
+            this.erase_button.Text = "all clear";
             this.erase_button.UseVisualStyleBackColor = true;
+            this.erase_button.Click += new System.EventHandler(this.erase_button_Click);
             // 
             // textBox4
             // 
@@ -296,27 +343,31 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.A_Indicator);
+            this.panel6.Controls.Add(this.A_indicator);
             this.panel6.Controls.Add(this.changinglabel);
             this.panel6.Controls.Add(this.H_Indicator);
             this.panel6.Controls.Add(this.W_Indicator);
             this.panel6.Controls.Add(this.H_decorator);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.textBox5);
-            this.panel6.Location = new System.Drawing.Point(3, 369);
+            this.panel6.Location = new System.Drawing.Point(3, 397);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(158, 121);
             this.panel6.TabIndex = 4;
             // 
-            // A_Indicator
+            // A_indicator
             // 
-            this.A_Indicator.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
-            this.A_Indicator.Location = new System.Drawing.Point(37, 89);
-            this.A_Indicator.Name = "A_Indicator";
-            this.A_Indicator.Size = new System.Drawing.Size(121, 26);
-            this.A_Indicator.TabIndex = 8;
-            this.A_Indicator.Text = "Coordinates";
-            this.A_Indicator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.A_indicator.BackColor = System.Drawing.SystemColors.Info;
+            this.A_indicator.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold);
+            this.A_indicator.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.A_indicator.Location = new System.Drawing.Point(37, 89);
+            this.A_indicator.Name = "A_indicator";
+            this.A_indicator.Size = new System.Drawing.Size(121, 26);
+            this.A_indicator.TabIndex = 8;
+            this.A_indicator.Text = "Coordinates";
+            this.A_indicator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.A_indicator.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.A_indicator.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // changinglabel
             // 
@@ -379,22 +430,47 @@
             this.textBox5.Text = "Size Summary";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Location = new System.Drawing.Point(161, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(736, 513);
+            this.panel1.TabIndex = 5;
+            this.panel1.TabStop = false;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // save_button
+            // 
+            this.save_button.Location = new System.Drawing.Point(3, 94);
+            this.save_button.Name = "save_button";
+            this.save_button.Size = new System.Drawing.Size(152, 23);
+            this.save_button.TabIndex = 8;
+            this.save_button.Text = "Save As Jpg";
+            this.save_button.UseVisualStyleBackColor = true;
+            this.save_button.Click += new System.EventHandler(this.save_button_Click);
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(897, 513);
+            this.ClientSize = new System.Drawing.Size(897, 487);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Name = "Display";
             this.Text = "SimplePaint";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -403,16 +479,14 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panel1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button pen_button;
-        private System.Windows.Forms.ComboBox pen_lv_combobox;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button elips_button;
@@ -434,11 +508,17 @@
         private System.Windows.Forms.TextBox W_Indicator;
         private System.Windows.Forms.Label H_decorator;
         private System.Windows.Forms.Button triangle;
-        private System.Windows.Forms.TextBox A_Indicator;
+        private System.Windows.Forms.TextBox A_indicator;
         private System.Windows.Forms.Label changinglabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button undo;
+        private System.Windows.Forms.PictureBox panel1;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button save_button;
     }
 }
 

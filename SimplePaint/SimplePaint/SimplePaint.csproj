@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="commandPattern\circlecommand.cs" />
+    <Compile Include="commandPattern\freehandcommand.cs" />
+    <Compile Include="commandPattern\iCommand.cs" />
+    <Compile Include="commandPattern\linecommand.cs" />
+    <Compile Include="commandPattern\rectanglecommand.cs" />
+    <Compile Include="commandPattern\trianglecommand.cs" />
     <Compile Include="component\Shape.cs" />
     <Compile Include="concretecomponent\circle.cs" />
     <Compile Include="concretecomponent\line.cs" />

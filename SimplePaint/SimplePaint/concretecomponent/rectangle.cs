@@ -12,20 +12,19 @@ namespace SimplePaint
         int fromX,fromY, toX, toY;
         Graphics graph;
         Pen p;
-        public rectangle(int initialX, int initialY, Pen p, int x, int y, Graphics objGraphic, int tebal)
+        SolidBrush sb;
+        public rectangle(int initialX, int initialY, Pen p, SolidBrush sb, int x, int y, Graphics objGraphic)
         {
             this.fromX = initialX ;
             this.fromY = initialY;
             this.p = p;
+            this.sb = sb;
             this.toX = x;
             this.toY = y;
             this.graph = objGraphic;
-            this.thickness = tebal;
+           
         }
-        public override int getThickness()
-        {
-            return this.thickness;
-        }
+      
         public override Graphics GetGraph()
         {
             return this.graph;
@@ -60,7 +59,7 @@ namespace SimplePaint
                    Math.Abs(toX - fromX),
                    Math.Abs(toY - fromY));
             graph.DrawRectangle(p, rect);
-   
+            graph.FillRectangle(sb, rect);
          }
     }
 }
